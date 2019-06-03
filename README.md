@@ -14,7 +14,7 @@
 -   Export Albums, Folders, Moments, Faces, etc.
 -   Create a static web app to browse through the pictures and albums
 -   Use it as a CLI or library, which makes it easy to automate backups
--	Database is accessed read-only, it will never corrupt the file
+-   Database is accessed read-only, it will never corrupt the file
 
 ## Motivation
 
@@ -41,12 +41,22 @@ This software can either be used as a CLI or as a normal Node library.
 _For more examples and usage, please refer to the [Docs][docs]._
 
 ### Using the CLI
+
 For now, the CLI only supports the `build` command. This command will export your photos to the output folder and also generate a simple web app that let's you browse through the albums and pictures.
+
+#### `build` command
+
 ```sh
 $ icloud-photos-backup build /path/to/Photos\ Library.photosLibrary -o /path/to/output
 ```
 
+Options:
+-	`--output, -o` Set the output folder (default: "output")
+-	`--progress, -p` Show a progress bar (default: true)
+-	`--thumbnails, -t` Generate thumbnails (default: false)
+
 ### Using the library
+
 ```js
 const { PhotosLibrary } = require('icloud-photos-backup');
 
@@ -63,7 +73,7 @@ const folders = await library.getFolders(argv.album);
 
 ## Roadmap
 
--	Add support for more types of collections like Faces, Moments etc.
+-   Add support for more types of collections like Faces, Moments etc.
 
 ## Authors
 
@@ -78,8 +88,6 @@ Distributed under the MIT license. See `LICENSE` for more information.
 3. Commit your changes (`git commit -am 'Add some fooBar'`)
 4. Push to the branch (`git push origin feature/fooBar`)
 5. Create a new Pull Request
-
-
 
 [npm-image]: https://img.shields.io/npm/v/icloud-photos-browser.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/icloud-photos-browser
