@@ -1,4 +1,4 @@
-<center><h1>iCloud Photos Backup</h1></center>
+<h1 align="center">iCloud Photos Backup</h1>
 
 > A command-line utility and JS library to parse and backup your iCloud Photos collection with a way to browse it.
 
