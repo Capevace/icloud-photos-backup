@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.h-min-content {
+	height: min-content;
+}
+
+.pig-figure {
+	@apply .border-4 .border-white .rounded;
+
+	&:hover {
+		@apply .border-blue-500 .rounded;
+	}
+}
+
+@import "spinner";
