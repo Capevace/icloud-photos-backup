@@ -2,11 +2,9 @@
 
 <h6 align="center">A command-line utility and JS library to parse and backup your iCloud Photos collection with a way to browse it.</h6>
 
-<p align="center">
 [![NPM Version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Downloads Stats][npm-downloads]][npm-url]
-</p>
 
 ## Features
 
