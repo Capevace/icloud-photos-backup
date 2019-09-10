@@ -16,7 +16,23 @@
 
 ## Motivation
 
-When I recently rebuilt my in-house NAS, I realized that I wanted a way to backup my iCloud Photos library to remove a forever-lasting dependency on Apple. While there are some tools on the market that let you extract photos from your library, these are mostly only useable manually, don't have all the features I wanted, only export the pictures and videos from you library without any organizing and cost a lot of money. This library solves most of these issues, while being free and open-source!
+When I recently rebuilt my in-house NAS, I realized that I wanted a way to backup my iCloud Photos library to remove a forever-lasting dependency on Apple. While there are some tools on the market that let you extract photos from your library, these are mostly only useable manually, don't have all the features I wanted, only export the pictures and videos from your library without any organizing and cost a lot of money. This library solves most of these issues, while being free and open-source!
+
+## Backing up iCloud Photos libraries
+By default, iCloud Photos libraries (`.photoslibrary`) are stored in the `~/Pictures` directory.
+
+There's usually two ways to backup your library to a NAS:
+1. Setting the directory that your `.photoslibrary` file should be stored in to somewhere on your NAS (via Photos.app's settings and a file share)
+2. Copying the pictures out of your `.photoslibrary` file and onto your NAS
+
+Both approaches have pros and cons.
+
+Storing your `.photoslibrary` file directly on the NAS has the advantage that there's not much you'll need to do. You can make backups of that file via NAS software to always have a working copy of your library. However, having all your media stored in a `.photoslibrary` file makes them hard to access on Windows or Linux devices. Additionally, since more latency is intoduced into loading the pictures and videos, iCloud's photo processing tasks (analysing faces, places etc.) will take way longer than if the main library file were to reside on your computer.
+
+Copying all your pictures and videos out of your `.photoslibrary` makes them available to you in an easy to use and standardized way (via filesystem). But copying out all your media out of your library can be a tedious task, if you want to keep folder and album structures. Also, all the analyzed data (faces, places etc.) is gone and not usable with this approach, as you're only saving the raw data.
+
+This tool takes both approaches and sort of merges them together! If you want, you can still store your `.photoslibrary` file on your NAS. The library only needs its path to work. That means you can simply keep using Photos.app like you used to.
+Instead, the tool will go through your iCloud library and parse out all your folders, albums and other metadata such as faces and places to then generate a small web app in which you can view your pictures. You can choose to also have either the default iCloud file structure (e.g. `/2019/08/21/2019-08-21-XXXXX/IMGXXXX.jpg`) or a more filesystem explorer friendly by storing them in folders named after your albums and folders.
 
 ## Installation
 
@@ -37,6 +53,10 @@ npm install --save icloud-photos-browser
 This software can either be used as a CLI or as a normal Node library.
 
 _For more examples and usage, please refer to the [Docs][docs]._
+
+### Beware: your Photos.app may be set to optimize storage
+In order to be able to save disk space, Photos.app has a mode in which you can 'optimize storage' by not having every picture saved on
+your device. 
 
 ### Using the CLI
 
