@@ -18,7 +18,8 @@ const store = new Vuex.Store({
 	state: {
 		folders: null,
 		albums: {},
-		albumMedia: {}
+		albumMedia: {},
+		showHiddenFolders: false
 	},
 	mutations: {
 		setFolders(state, folders) {

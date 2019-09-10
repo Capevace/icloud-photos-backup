@@ -282,7 +282,14 @@ __webpack_require__.r(__webpack_exports__);
   props: ['folders'],
   computed: {
     topLevelFolders: function topLevelFolders() {
-      return this.folders.length > 0 ? this.folders[0].folders : [];
+      if (this.$store.state.showHiddenFolders && this.folders.length > 0) {
+        return this.folders[0].folders;
+      }
+
+      var topLevelAlbumsFolder = this.folders[0].folders.filter(function (folder) {
+        return folder.uuid === 'TopLevelAlbums';
+      })[0];
+      return topLevelAlbumsFolder ? topLevelAlbumsFolder.folders : [];
     }
   },
   components: {
@@ -19148,7 +19155,8 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
   state: {
     folders: null,
     albums: {},
-    albumMedia: {}
+    albumMedia: {},
+    showHiddenFolders: false
   },
   mutations: {
     setFolders: function setFolders(state, folders) {
@@ -20473,8 +20481,8 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (globa
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/mat/Projects/icloud-photos-browser/template/src/js/index.js */"./template/src/js/index.js");
-module.exports = __webpack_require__(/*! /Users/mat/Projects/icloud-photos-browser/template/src/scss/index.scss */"./template/src/scss/index.scss");
+__webpack_require__(/*! /Users/Lukas/Projects/icloud-photos-backup/template/src/js/index.js */"./template/src/js/index.js");
+module.exports = __webpack_require__(/*! /Users/Lukas/Projects/icloud-photos-backup/template/src/scss/index.scss */"./template/src/scss/index.scss");
 
 
 /***/ })

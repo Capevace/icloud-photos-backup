@@ -40,7 +40,17 @@ export default {
 	props: ['folders'],
 	computed: {
 		topLevelFolders() {
-			return this.folders.length > 0 ? this.folders[0].folders : [];
+			if (this.$store.state.showHiddenFolders && this.folders.length > 0) {
+				return this.folders[0].folders;
+			}
+			
+			const topLevelAlbumsFolder = this.folders[0]
+					.folders
+					.filter(folder => folder.uuid === 'TopLevelAlbums')[0];
+
+			return topLevelAlbumsFolder
+				? topLevelAlbumsFolder.folders 
+				: [];
 		}
 	},
 	components: {
