@@ -20,7 +20,7 @@
     "type": "git",
     "url": "git+https://github.com/capevace/icloud-photos-backup.git"
   },
-  "license": "MIT",
+  "license": "GNU GPLv3",
   "dependencies": {
     "array-to-tree": "^3.3.0",
     "cli-progress": "^2.1.1",
