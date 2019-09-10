@@ -62,7 +62,7 @@ async function buildWebApp(argv) {
 	progress().increment(0, { album: '', action: 'loadFolders' });
 
 	const folders = await library.getFolders(argv.album);
-	await generateOutputFolder(argv.output, library.libraryPath, folders, {
+	await generateOutputFolder(argv.output, library, folders, {
 		shouldGenerateThumbnails:
 			argv.thumbnails === true || argv.thumbnails === 'true'
 	});
