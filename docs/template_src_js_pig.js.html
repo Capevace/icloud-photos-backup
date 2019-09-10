@@ -1,4 +1,32 @@
-(function(global) {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: template/src/js/pig.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: template/src/js/pig.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>(function(global) {
   'use strict';
 
   /**
@@ -64,7 +92,7 @@
   }());
 
   /**
-   * Inject CSS needed to make the grid work in the <head></head>.
+   * Inject CSS needed to make the grid work in the &lt;head>&lt;/head>.
    *
    * @param {string} classPrefix - the prefix associated with this library that
    *                               should be prepended to classnames.
@@ -214,7 +242,7 @@
        * Type: string
        * Default: 'figure'
        * Description: The tag name to use for each figure. The default setting is
-       *   to use a <figure></figure> tag.
+       *   to use a &lt;figure>&lt;/figure> tag.
        */
       figureTagName: 'figure',
 
@@ -262,7 +290,7 @@
       thumbnailSize: 20,
 
       /**
-       * Get the URL for an image with the given filename & size.
+       * Get the URL for an image with the given filename &amp; size.
        *
        * @param {string} filename - The filename of the image.
        * @param {Number} size - The size (height in pixels) of the image.
@@ -288,11 +316,11 @@
        * @returns {Number} The minimum aspect ratio at this window width.
        */
       getMinAspectRatio: function(lastWindowWidth) {
-        if (lastWindowWidth <= 640)
+        if (lastWindowWidth &lt;= 640)
           return 2;
-        else if (lastWindowWidth <= 1280)
+        else if (lastWindowWidth &lt;= 1280)
           return 4;
-        else if (lastWindowWidth <= 1920)
+        else if (lastWindowWidth &lt;= 1920)
           return 5;
         return 6;
       },
@@ -309,9 +337,9 @@
        * @returns {Number} The size (height in pixels) of the images to load.
        */
       getImageSize: function(lastWindowWidth) {
-        if (lastWindowWidth <= 640)
+        if (lastWindowWidth &lt;= 640)
           return 100;
-        else if (lastWindowWidth <= 1920)
+        else if (lastWindowWidth &lt;= 1920)
           return 250;
         return 500;
       }
@@ -381,7 +409,7 @@
     var oldMinAspectRatio = this.minAspectRatio;
     this.minAspectRatio = this.settings.getMinAspectRatio(this.lastWindowWidth);
 
-    if (oldMinAspectRatio !== null && oldMinAspectRatio !== this.minAspectRatio)
+    if (oldMinAspectRatio !== null &amp;&amp; oldMinAspectRatio !== this.minAspectRatio)
       this.minAspectRatioRequiresTransition = true;
     else
       this.minAspectRatioRequiresTransition = false;
@@ -396,7 +424,7 @@
    * @param {string} imageData[0].filename - The filename of the image.
    * @param {string} imageData[0].aspectRatio - The aspect ratio of the image.
    *
-   * @returns {Array.<ProgressiveImage>} - An array of ProgressiveImage
+   * @returns {Array.&lt;ProgressiveImage>} - An array of ProgressiveImage
    *                                      instances that we created.
    */
   Pig.prototype._parseImageData = function(imageData) {
@@ -446,7 +474,7 @@
     // changed.) Once we determine that the transtion is probably over (using
     // `this._getTransitionTimeout`) we unset `this.isTransitioning`, so that
     // future calls to `_computeLayout` will set "transition: none".
-    if (!this.isTransitioning && this.minAspectRatioRequiresTransition) {
+    if (!this.isTransitioning &amp;&amp; this.minAspectRatioRequiresTransition) {
       this.isTransitioning = true;
       setTimeout(function() {
         this.isTransitioning = false;
@@ -607,7 +635,7 @@
     // no, and either insert it or remove it appropriately.
     this.images.forEach(function(image) {
 
-      if (image.style.translateY + image.style.height < minTranslateYPlusHeight ||
+      if (image.style.translateY + image.style.height &lt; minTranslateYPlusHeight ||
             image.style.translateY > maxTranslateY) {
         // Hide Image
         image.hide();
@@ -698,10 +726,10 @@
    * width, and position in the grid. An instance of this class is associated
    * with a single image figure, which looks like this:
    *
-   *   <figure class="pig-figure" style="transform: ...">
-   *     <img class="pig-thumbnail pig-loaded" src="/path/to/thumbnail/image.jpg" />
-   *     <img class="pig-loaded" src="/path/to/500px/image.jpg" />
-   *   </figure>
+   *   &lt;figure class="pig-figure" style="transform: ...">
+   *     &lt;img class="pig-thumbnail pig-loaded" src="/path/to/thumbnail/image.jpg" />
+   *     &lt;img class="pig-loaded" src="/path/to/500px/image.jpg" />
+   *   &lt;/figure>
    *
    * However, this element may or may not actually exist in the DOM. The actual
    * DOM element may loaded and unloaded depending on where it is with respect
@@ -710,7 +738,7 @@
    * be removed.
    *
    * This class also manages the blur-into-focus load effect.  First, the
-   * <figure> element is inserted into the page. Then, a very small thumbnail
+   * &lt;figure> element is inserted into the page. Then, a very small thumbnail
    * is loaded, stretched out to the full size of the image.  This pixelated
    * image is then blurred using CSS filter: blur(). Then, the full image is
    * loaded, with opacity:0.  Once it has loaded, it is given the `pig-loaded`
@@ -868,12 +896,35 @@
   };
 
   // Export Pig into the global scope.
-  if (typeof define === 'function' && define.amd) {
+  if (typeof define === 'function' &amp;&amp; define.amd) {
     define([], function() { return Pig });
-  } else if (typeof module !== 'undefined' && module.exports) {
+  } else if (typeof module !== 'undefined' &amp;&amp; module.exports) {
     module.exports = Pig;
   } else {
     global.Pig = Pig;
   }
 
 }(typeof window !== 'undefined' ? window : this));
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#add">add</a></li><li><a href="global.html#coreDataDateToJSDate">coreDataDateToJSDate</a></li><li><a href="global.html#disable">disable</a></li><li><a href="global.html#loadMedia">loadMedia</a></li><li><a href="global.html#mkdirIfNotExists">mkdirIfNotExists</a></li><li><a href="global.html#processMedia">processMedia</a></li><li><a href="global.html#progress">progress</a></li><li><a href="global.html#reEnable">reEnable</a></li><li><a href="global.html#setShowProgress">setShowProgress</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.2</a> on Mon Jun 03 2019 17:28:19 GMT+0800 (Singapore Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
