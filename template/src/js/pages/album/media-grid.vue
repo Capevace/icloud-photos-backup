@@ -1,6 +1,6 @@
 <template>
-	<section class="w-full">
-		<div id="pig" class="w-full" ref="pig"></div>
+	<section class="w-full p-5">
+		<div id="pig" class="" ref="pig"></div>
 	</section>
 </template>
 <script type="text/javascript">

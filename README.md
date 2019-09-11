@@ -31,7 +31,7 @@ Storing your `.photoslibrary` file directly on the NAS has the advantage that th
 Copying all your pictures and videos out of your `.photoslibrary` makes them available to you in an easy to use and standardized way (via filesystem). But copying out all your media out of your library can be a tedious task, if you want to keep folder and album structures. Also, all the analyzed data (faces, places etc.) is gone and not usable with this approach, as you're only saving the raw data.
 
 This tool takes both approaches and sort of merges them together! If you want, you can still store your `.photoslibrary` file on your NAS. The library only needs its path to work. That means you can simply keep using Photos.app like you used to.
-Instead, the tool will go through your photos library and parse out all your folders, albums and other metadata such as faces and places to then generate a small web app in which you can view your pictures. You can choose to also have either the default Photos.app file structure (e.g. `/2019/08/21/2019-08-21-XXXXX/IMGXXXX.jpg`) or a more filesystem explorer friendly one by strucuring them in folders named after your albums and folders (e.g. `/Summer 2019/Trip to Sweden/IMGXXXX.jpg`).
+Instead, the tool will go through your photos library and parse out all your folders, albums and other metadata such as faces and places to then generate a small _static_ web app in which you can view your pictures. You can choose to also have either the default Photos.app file structure (e.g. `/2019/08/21/2019-08-21-XXXXX/IMGXXXX.jpg`) or a more filesystem explorer friendly one by strucuring them in folders named after your albums and folders (e.g. `/Summer 2019/Trip to Sweden/IMGXXXX.jpg`).
 
 If you don't actively use iCloud this library also enables you to share certain albums on the web! You can choose which albums to include in the generated web app, enabling you to share the app with your friends and family. I'm planning on making this a lot easier in the future too but I want to build the basics first. :)
 
@@ -74,7 +74,8 @@ $ icloud-photos-backup build /path/to/Photos\ Library.photosLibrary -o /path/to/
 Options:
 -	`--output, -o` Set the output folder (default: "output")
 -	`--progress, -p` Show a progress bar (default: true)
--	`--thumbnails, -t` Generate thumbnails (default: false)
+-	`--noThumbnails` Skip generating thumbnails (default: false)
+-	`--album, -a` Specify an album to export (default: all albums and folders)
 
 ### Using the library
 
@@ -95,6 +96,9 @@ const folders = await library.getFolders(argv.album);
 ## Roadmap
 
 -   Add support for more types of collections like Faces, Moments etc.
+- 	Add support for a "all pictures" view
+-	Add support for exporting detailed metadata, like picture's cached location names
+- 	Generate thumbnails for videos
 
 ## Authors
 

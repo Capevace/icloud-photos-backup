@@ -25,14 +25,15 @@ yargs
 				.describe('a', 'Limit execution to an album')
 				.option('progress', {
 					alias: 'p',
-					default: true
+					default: true,
+					type: 'boolean'
 				})
 				.describe('p', 'Show the processing progress')
-				.option('thumbnails', {
-					alias: 't',
-					default: false
+				.option('noThumbnails', {
+					default: false,
+					type: 'boolean'
 				})
-				.describe('t', 'Generate thumbnails')
+				.describe('noThumbnails', 'Skip generating thumbnails')
 				.argv,
 		buildWebApp
 	)
@@ -64,7 +65,7 @@ async function buildWebApp(argv) {
 	const folders = await library.getFolders(argv.album);
 	await generateOutputFolder(argv.output, library, folders, {
 		shouldGenerateThumbnails:
-			argv.thumbnails === true || argv.thumbnails === 'true'
+			!(argv['no-thumbnails'] === true || argv['no-thumbnails'] === 'true')
 	});
 
 	progress().update(1, { action: 'done', album: '' });

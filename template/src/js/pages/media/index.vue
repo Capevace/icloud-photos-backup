@@ -7,12 +7,13 @@
 			<header
 				class="h-10 px-2 bg-gray-100 w-full flex justify-between items-center text-gray-700"
 			>
-				<section>
+				<section class="flex content-center w-3">
 					<button
 						@click="back"
 						class="rounded text-lg font-mono"
+						title="Back"
 					>
-						<
+						<chevron-left-icon></chevron-left-icon>
 					</button>
 				</section>
 				<section class="flex flex-wrap">
@@ -21,8 +22,10 @@
 						>{{ imageIndex + 1 }} of {{ albumTotalCount }}</p
 					>
 				</section>
-				<section>
-					<button @click="showMediaJSON = !showMediaJSON">Debug</button>
+				<section class="flex content-center w-3">
+					<button @click="showMediaJSON = !showMediaJSON" title="Toggle Debug">
+						<code-icon></code-icon>
+					</button>
 				</section>
 			</header>
 
@@ -34,6 +37,8 @@
 </template>
 <script type="text/javascript">
 import ImageViewer from './image-viewer';
+import ChevronLeftIcon from '../../components/icons/chevron-left';
+import CodeIcon from '../../components/icons/code';
 
 export default {
 	data: () => ({
@@ -119,7 +124,9 @@ export default {
 		document.removeEventListener('keydown', this.onKeyDown);
 	},
 	components: {
-		ImageViewer
+		ImageViewer,
+		ChevronLeftIcon,
+		CodeIcon
 	}
 };
 </script>
