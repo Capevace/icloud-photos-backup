@@ -1,6 +1,15 @@
-<h1 align="center">iCloud Photos Backup</h1>
-
-<h6 align="center">A command-line utility and Node library to parse and backup your Apple Photos collection with a way to browse it.</h6>
+<div align="center">
+	<a href="https://mateffy.me/icloud-photos-backup">
+		<img src="icloud.png">
+	</a>
+	<h1>iCloud Photos Backup</h1>
+	<p>
+		<b>A command-line utility and Node library to parse and backup your Apple Photos collection with a way to browse it.</b>
+	</p>
+	<br>
+	<br>
+	<br>
+</div>
 
 [![NPM Version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
