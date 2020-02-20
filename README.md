@@ -1,6 +1,6 @@
 <div align="center">
 	<a href="https://mateffy.me/icloud-photos-backup">
-		<img src="icloud.png" style="width: 200px;">
+		<img src="icloud.png" width="200px">
 	</a>
 	<h1>iCloud Photos Backup</h1>
 	<p>
