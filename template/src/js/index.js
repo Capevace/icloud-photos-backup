@@ -3,6 +3,8 @@ import Vuex from 'vuex';
 import VueRouter from 'vue-router';
 import VueRouterMultiView from 'vue-router-multi-view'
 
+import './database';
+
 import IndexPage from './pages/index';
 import AlbumPage from './pages/album';
 import MediaPage from './pages/media';

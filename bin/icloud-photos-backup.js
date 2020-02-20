@@ -64,6 +64,7 @@ async function buildWebApp(argv) {
 
 	const folders = await library.getFolders(argv.album);
 	await generateOutputFolder(argv.output, library, folders, {
+		shouldGenerateFolderSymlinks: true,
 		shouldGenerateThumbnails:
 			!(argv['no-thumbnails'] === true || argv['no-thumbnails'] === 'true')
 	});
