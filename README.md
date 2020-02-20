@@ -6,14 +6,13 @@
 	<p>
 		<b>A command-line utility and Node library to parse and backup your Apple Photos collection with a way to browse it.</b>
 	</p>
-	<br>
-	<br>
-	<br>
 </div>
 
 [![NPM Version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Downloads Stats][npm-downloads]][npm-url]
+
+<br>
 
 ## Features
 -   Export your Apple Photos library to disk
